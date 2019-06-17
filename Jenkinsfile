@@ -1,5 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent { 
+        dockerfile {
+            args '-v ~/jenkins_bundle:/bundle'
+        }
+    }
     environment {
         GIT_CREDENTIALS_KEY = "Github"
     }
