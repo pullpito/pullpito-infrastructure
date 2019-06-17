@@ -18,14 +18,17 @@ pipeline {
                         url: "https://github.com/pullpito/pullpito-backend"
                     ]]
                 ])
-                sh 'ls -al'
             }
         }
-        stage('setup') {
+        stage('Setup') {
            steps {
-               sh 'ls -al'
-            //    sh 'gem install bundler'
+               sh 'bundle install'
            }
+        }
+        stage('Test') {
+            steps {
+                sh 'rails test'
+            }
         }
         //stage('build') {
         //    steps {
