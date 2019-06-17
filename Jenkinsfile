@@ -2,10 +2,21 @@ pipeline {
     agent { dockerfile true }
     stages {
         stage('Checkout') {
-           steps {
-               git url: "https://github.com/pullpito/pullpito-backend"
-               sh 'ls -al'
-           }
+            steps {
+                checkout([
+                    $class: "GitSCM", 
+                    branches: [[name: "*/develop"]], 
+                    doGenerateSubmoduleConfigurations: false, 
+                    extensions: [],
+                    gitTool: "jgit",
+                    submoduleCfg: [], 
+                    userRemoteConfigs: [[
+                        credentialsId: "${GIT_CREDENTIALS_KEY}", 
+                        url: "https://github.com/pullpito/pullpito-backend"
+                    ]]
+                ])
+                sh 'ls -al'
+            }
         }
         stage('setup') {
            steps {
