@@ -4,6 +4,8 @@ pipeline {
         stage('ruby-version') {
             steps {
                 sh 'ruby -v'
+                sh 'bundle -v'
+                sh 'ls -al'
             }
         }
         //stage('setup') {
