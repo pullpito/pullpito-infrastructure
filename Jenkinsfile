@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         dockerfile {
-            args '-v ~/jenkins_bundle:/bundle'
+            args '-v /home/ubuntu/volumes/jenkins_bundle/jenkins_bundle:/bundle'
         }
     }
     environment {
