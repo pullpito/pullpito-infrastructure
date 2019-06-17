@@ -22,11 +22,13 @@ pipeline {
                         url: "https://github.com/pullpito/pullpito-backend"
                     ]]
                 ])
+                sh 'pwd'
                 sh 'ls -al'
             }
         }
         stage('Setup') {
             steps {
+                sh 'pwd'
                 sh 'ls -al'
                 sh 'bundle install'
             }
