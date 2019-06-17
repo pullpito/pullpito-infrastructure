@@ -11,7 +11,6 @@ pipeline {
                     gitTool: "jgit",
                     submoduleCfg: [], 
                     userRemoteConfigs: [[
-                        credentialsId: "${GIT_CREDENTIALS_KEY}", 
                         url: "https://github.com/pullpito/pullpito-backend"
                     ]]
                 ])
