@@ -1,5 +1,8 @@
 pipeline {
     agent { dockerfile true }
+    environment {
+        GIT_CREDENTIALS_KEY = "Github"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -11,6 +14,7 @@ pipeline {
                     gitTool: "jgit",
                     submoduleCfg: [], 
                     userRemoteConfigs: [[
+                        credentialsId: "${GIT_CREDENTIALS_KEY}",
                         url: "https://github.com/pullpito/pullpito-backend"
                     ]]
                 ])
